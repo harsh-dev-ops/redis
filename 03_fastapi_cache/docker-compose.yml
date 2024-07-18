@@ -7,19 +7,19 @@ services:
       - redis-data:/data
 
   
-  app:
-    image: async_redisom
-    build:
-      context: .
-      dockerfile: docker/dockerfile
-    ports:
-      - "8000:8000"
-      - "8001:8000"
-    volumes:
-      - .:/app
-    depends_on:
-      - redis
-    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+  # app:
+  #   image: async_redisom
+  #   build:
+  #     context: .
+  #     dockerfile: docker/dockerfile
+  #   ports:
+  #     - "8000:8000"
+  #     - "8001:8000"
+  #   volumes:
+  #     - .:/app
+  #   depends_on:
+  #     - redis
+  #   command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 
 volumes:
   redis-data:

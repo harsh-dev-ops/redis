@@ -1,9 +1,10 @@
-from redis_om import HashModel
-from .database import redis_db
+from aredis_om import HashModel, get_redis_connection
+from app.conf.settings import settings
+
+redis_db =  get_redis_connection(url=settings.REDIS_URL, decode_responses=True)
 
 class Author(HashModel):
     name: str
-    
     
     class Meta:
         database = redis_db

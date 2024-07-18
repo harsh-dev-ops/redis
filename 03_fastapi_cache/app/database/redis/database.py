@@ -1,11 +1,11 @@
-import aioredis
+from redis import asyncio as async_redis
+from fastapi import Depends
+from typing import Annotated
 
-async def get_redis() -> aioredis.Redis:
-    redis_db = await aioredis.Redis(
-        host='localhost',
-        port=6378,
-        db=1,
-        encoding='utf-8',
-        decode_responses=True
-    )
+from app.conf.settings import settings
+
+async def get_redis() -> async_redis.Redis:
+    redis_db = await async_redis.from_url(settings.REDIS_URL, encoding="utf8", decode_responses=True)
     return redis_db
+
+redis_db = Annotated[async_redis.Redis, Depends(get_redis)]

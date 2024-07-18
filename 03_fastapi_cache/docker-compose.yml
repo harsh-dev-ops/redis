@@ -5,7 +5,6 @@ services:
       - "6378:6379"
     volumes:
       - redis-data:/data
-
   
   app:
     image: async_redisom

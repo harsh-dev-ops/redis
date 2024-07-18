@@ -1,6 +1,7 @@
-aioredis
 fastapi[all]
 uvicorn
 redis
+redis_om
 python-multipart
 python-jose
+fastapi-cache2

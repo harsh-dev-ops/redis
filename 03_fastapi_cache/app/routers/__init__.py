@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
 from app.database.redis.database import redis_db
-from . import authors
+from . import authors, books
 
 
 api_router = APIRouter()
@@ -15,3 +15,9 @@ api_router.include_router(
     prefix="/authors", 
     tags=["Authors"]
     )
+
+api_router.include_router(
+    books.router,
+    prefix="/books",
+    tags=["Books"]
+)

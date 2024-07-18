@@ -1,0 +1,6 @@
+aioredis
+fastapi[all]
+uvicorn
+redis
+python-multipart
+python-jose
